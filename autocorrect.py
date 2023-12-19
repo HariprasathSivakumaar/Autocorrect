@@ -1,21 +1,21 @@
 from collections import Counter
 import re
 import nltk
+import os
 
 # nltk.download('words')
 
 # def process_data():
 def process_data(file_name):
-    with open(file_name, "r") as file:
+    filePath = os.path.join(os.path.dirname(__file__), file_name)
+    with open(filePath, "r") as file:
         text = file.read()
     text = text.lower()
     words = re.findall(r'\w+', text)
-    return words
     # words = nltk.corpus.words.words()
+    return words
 
-    # return words
-
-def get_count(word_l):
+def count(word_l):
     word_count_dict = {}
     for word in word_l:
         if word in word_count_dict:
@@ -73,32 +73,34 @@ def edit_two_letters(word):
         edit_two_set.update(second_edit)
     return edit_two_set
 
-# Get the input word from the user
+
+'''
 user_input = input("Enter a word: ")
 
-# Load and process the data
-word_l = process_data(r"C:\Users\Hariprasath\Downloads\Coursera\Natural Language Processing Specialization\2 - Natural Language Processing with Probabilistic Models\Week - 1\data\shakespeare.txt")
+word_l = process_data("shakespeare.txt")
 # word_l = process_data()
 vocab = set(word_l)
-word_count_dict = get_count(word_l)
+word_count_dict = count(word_l)
 probs = get_probs(word_count_dict)
 
-# Get autocorrected word and print it
 autocorrected_word = get_corrections(user_input, probs, vocab, 1)
 print(f"The autocorrected word is: {autocorrected_word[0][0]}")
 
-# MAIN FINAL CODE for SENTENCE
+
+
+
+# CODE for SENTENCE AUTOCORRECTION
 a = []
 
 a = [item for item in input("Enter the list items : ").split()]
 
 for i in a:
-    word_l = process_data(r"C:\Users\Hariprasath\Downloads\Coursera\Natural Language Processing Specialization\2 - Natural Language Processing with Probabilistic Models\Week - 1\data\shakespeare.txt")
+    word_l = process_data("shakespeare.txt")
     vocab = set(word_l)
-    word_count_dict = get_count(word_l)
+    word_count_dict = count(word_l)
     probs = get_probs(word_count_dict)
 
-    # Get autocorrected word and print it
     autocorrected_word = get_corrections(i, probs, vocab, 1)    
     # print(''.join(autocorrected_word[0][0]))
     print(f"The autocorrected word is: {autocorrected_word[0][0]}")
+'''
