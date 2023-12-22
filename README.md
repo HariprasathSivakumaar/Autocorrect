@@ -1,6 +1,6 @@
 # Autocorrect Application
 
-This repository contains an autocorrect application implemented in Python using the Tkinter library for the graphical user interface.
+This repository contains an autocorrect application implemented in Python with graphical user interface using the Tkinter.
 
 <div align="center">
   <img src = "https://github.com/HariprasathSivakumaar/Autocorrect/assets/139211448/30ec1a11-62b2-4078-afe2-6026f3e49a59">
